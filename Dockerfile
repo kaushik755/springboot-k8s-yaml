@@ -1,6 +1,4 @@
-FROM openjdk:8-jdk-alpine
-RUN addgroup -S springdocker && adduser -S springdocker -G springdocker
-USER springdocker:springdocker
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:8
+EXPOSE 8080
+ADD target/springboot-crud-k8s.jar springboot-crud-k8s.jar
+ENTRYPOINT ["java","-jar","/springboot-crud-k8s.jar"]
