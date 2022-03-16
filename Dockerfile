@@ -1,5 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8
 EXPOSE 8080
-ARG JAR_FILE=target/springboot-jib-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ADD target/springboot-k8s-demo.jar springboot-k8s-demo.jar
+ENTRYPOINT ["java","-jar","/springboot-k8s-demo.jar"]
